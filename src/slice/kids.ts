@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { KidsDataSuccessPayload, KidsState } from '../types/state'
+import { KidsState } from '../types/state'
+import {User} from '../types/users'
 
 export const initialState: KidsState = { kids: [] }
 
@@ -7,14 +8,11 @@ export const initialState: KidsState = { kids: [] }
 export const kidsDataSlice = createSlice({
   name: 'kidUsers',
   initialState,
-  reducers: {
-    fetchKidsData: (state: KidsState) => {
-      state.kids = []
-    },
-    fetchKidsDataSuccess: (state: KidsState, action: PayloadAction<KidsDataSuccessPayload>) => {
-      state.kids = action.payload.kidsData
+  reducers: {  
+    fetchKidsData: (state: KidsState, action: PayloadAction<User[]>) => {
+      state.kids = action.payload
     },
   },
 })
 
-export const { fetchKidsData, fetchKidsDataSuccess } = kidsDataSlice.actions
+export const { fetchKidsData } = kidsDataSlice.actions

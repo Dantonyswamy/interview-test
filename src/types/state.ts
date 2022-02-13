@@ -4,6 +4,4 @@ export interface KidsState {
   kids: User[]
 }
 
-export interface KidsDataSuccessPayload {
-  kidsData: User[]
-}
+
