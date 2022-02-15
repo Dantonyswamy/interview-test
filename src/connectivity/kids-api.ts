@@ -2,8 +2,8 @@ import { UserDataResponse, User } from '../types/users';
 
 export const getKidUsersFromApi = async () => {
   const kidUsersDataResponse = await fetch('http://localhost:8099/users/kids')
-  const kidUsersData: Array<UserDataResponse> = await kidUsersDataResponse.json()
-  const requiredKidsInformation: User[] = filterData(kidUsersData)
+  const kidUsersData = await kidUsersDataResponse.json()  
+  const requiredKidsInformation: User[] = filterData(kidUsersData.data)
   return requiredKidsInformation
 }
 

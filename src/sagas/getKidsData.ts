@@ -6,7 +6,7 @@ import { getKidUsersFromApi } from '../connectivity/kids-api'
 
 export function* fetchKidsDataSaga() {
   try {
-    const response: User[] = yield call(getKidUsersFromApi)
+    const response: User[] = yield call(getKidUsersFromApi)    
     yield put(fetchKidsData(response))
   } catch (err) {
     console.log(err)

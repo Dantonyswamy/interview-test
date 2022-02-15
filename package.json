@@ -11,6 +11,7 @@
     "start:client": "react-scripts start",
     "start:server": "node server/server.js"
   },
+  "proxy": "http://localhost:8099",
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.2",
     "@types/redux-logger": "^3.0.9",
