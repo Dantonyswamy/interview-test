@@ -9,10 +9,13 @@ export const kidsDataSlice = createSlice({
   name: 'kidUsers',
   initialState,
   reducers: {  
+    requestKidsData: (state: KidsState) => {
+      state.kids = []
+    },
     fetchKidsData: (state: KidsState, action: PayloadAction<User[]>) => {
       state.kids = action.payload
     },
   },
 })
 
-export const { fetchKidsData } = kidsDataSlice.actions
+export const { requestKidsData, fetchKidsData } = kidsDataSlice.actions

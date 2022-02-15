@@ -1,7 +1,7 @@
 import { call, put, all, takeLatest } from 'redux-saga/effects'
 
 import { User } from '../types/users'
-import { fetchKidsData } from '../slice/kids'
+import { requestKidsData, fetchKidsData } from '../slice/kids'
 import { getKidUsersFromApi } from '../connectivity/kids-api'
 
 export function* fetchKidsDataSaga() {
@@ -14,7 +14,7 @@ export function* fetchKidsDataSaga() {
 }
 
 function* getKidsDataSaga() {
-  yield all([takeLatest(fetchKidsData.type, fetchKidsDataSaga)])
+  yield all([takeLatest(requestKidsData.type, fetchKidsDataSaga)])
 }
 
 export default getKidsDataSaga
