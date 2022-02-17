@@ -30,7 +30,7 @@ const InputField = styled.input`
 
   &:focus
   {
-    border: 2px solid royalblue;
+    border: 2px solid #b5b6b7;
   }
 
   &:valid + ${InputLabel}
@@ -46,7 +46,7 @@ const InputField = styled.input`
     top: -1px;
     padding: 0 3px;
     font-size:14px;
-    color: royalblue;
+    color: #b5b6b7;
     transition: 300ms;
   }
 `;
