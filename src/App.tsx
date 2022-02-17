@@ -5,6 +5,9 @@ import { useAppDispatch, useAppSelector } from './hooks/hooks';
 import { requestKidsData } from './slice/kids';
 import { RootState } from './state';
 import { User } from './types/users';
+import { Button, Input } from './components';
+import { BaseLayout } from './layouts';
+
 // import styled from 'styled-components';
 
 // const API_URL = 'http://localhost:8099'
@@ -12,7 +15,32 @@ import { User } from './types/users';
 export const App = () => {
   
   const [kids, setKids] = useState<User[]>([]);
-
+//   const Button = styled.button`
+//   color: white;
+//   background-color: #52A27E;
+//   font-size: 0.75em;
+//   margin: 1em;
+//   padding: 0.5em 1em;
+//   cursor: pointer;
+//   border: 2px solid;
+//   border-radius: 20px;
+// `;
+  
+//   const Wrapper = styled.section`
+//   padding: 4em;
+//   background: #F4F6F8;
+//   height: 100vh;
+// `;
+  
+//   const Input = styled.input`
+//   padding: 0.5em;
+//   margin: 0.5em;
+//   color: black;
+//   text-color: black;
+//   background: white;
+//   border: 2px solid #b0b4ba;
+//   border-radius: 5px;
+// `;
 
   const dispatch = useAppDispatch();
   const kidsDataFromApi = useAppSelector((state: RootState) => state.kidsData);
@@ -32,6 +60,7 @@ export const App = () => {
 
 
   return (
+    <BaseLayout>
     <div className="App">
       <h1>Planned Test</h1>
       <div>
@@ -41,10 +70,12 @@ export const App = () => {
         <h2>Users</h2>
         min: <input name="minAge" defaultValue={0} type="number" />
         max: <input name="maxAge" defaultValue={100} type="number" />
-        <button type="button">Filter by age</button>      
+          <Button>Normal Button</Button>  
+         <Input required type="text" label="First Name" id="first-name" defaultValue="Antony" />
       </div>
        {kidsList}
     </div>
+    </BaseLayout>
   );
 }
 
