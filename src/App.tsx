@@ -64,19 +64,7 @@ export const App = () => {
            <Button onClick={()=>dispatch(requestKidsData())}>Retrive Users</Button> 
           </Header>
         </Card>
-       </Container>
-    {/* 
-      <h1>Planned Test</h1>
-      <div>
-        <button type="button" onClick={()=>dispatch(requestKidsData())}>Retrieve Users</button>
-      </div>
-      <div>
-        <h2>Users</h2>
-        min: <input name="minAge" defaultValue={0} type="number" />
-        max: <input name="maxAge" defaultValue={100} type="number" />
-          
-         
-        </div> */}
+       </Container>  
         {kidsList}
         </BaseLayout> 
      </div>
