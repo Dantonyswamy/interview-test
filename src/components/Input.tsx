@@ -3,11 +3,12 @@ import styled from 'styled-components';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>{
     id: string;
-    label: string;
+    label?: string;
 }
 
 const InputGroup = styled.div`
   position: relative;
+  margin: 20px;
 `;
 
 const InputLabel = styled.label`

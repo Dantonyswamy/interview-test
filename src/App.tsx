@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from './hooks/hooks';
 import { requestKidsData } from './slice/kids';
 import { RootState } from './state';
 import { User } from './types/users';
-import { Button, Input } from './components';
+import { Button, Input, Card, Header, Heading, Container } from './components';
 import { BaseLayout } from './layouts';
 
 // import styled from 'styled-components';
@@ -15,32 +15,7 @@ import { BaseLayout } from './layouts';
 export const App = () => {
   
   const [kids, setKids] = useState<User[]>([]);
-//   const Button = styled.button`
-//   color: white;
-//   background-color: #52A27E;
-//   font-size: 0.75em;
-//   margin: 1em;
-//   padding: 0.5em 1em;
-//   cursor: pointer;
-//   border: 2px solid;
-//   border-radius: 20px;
-// `;
-  
-//   const Wrapper = styled.section`
-//   padding: 4em;
-//   background: #F4F6F8;
-//   height: 100vh;
-// `;
-  
-//   const Input = styled.input`
-//   padding: 0.5em;
-//   margin: 0.5em;
-//   color: black;
-//   text-color: black;
-//   background: white;
-//   border: 2px solid #b0b4ba;
-//   border-radius: 5px;
-// `;
+
 
   const dispatch = useAppDispatch();
   const kidsDataFromApi = useAppSelector((state: RootState) => state.kidsData);
@@ -60,8 +35,37 @@ export const App = () => {
 
 
   return (
-    <BaseLayout>
-    <div className="App">
+    
+   <div className='App'>
+      <BaseLayout> 
+      <Container>
+      <Card>
+          <Header>
+          <Heading>Users</Heading> 
+          <Input required type="text" label="Min Age:" id="min-age" defaultValue="20" />
+           <Input required type="text" id="max-age" placeholder='Search...' />
+           <Button onClick={()=>dispatch(requestKidsData())}>Retrive Users</Button> 
+          </Header>
+        </Card>
+        </Container>  
+        <Container>
+      <Card>
+          <Header>
+          <Heading>Users</Heading> 
+          <Input required type="text" label="Min Age:" id="min-age" defaultValue="20" />
+            <Input required type="text" label="Max Age:" id="max-age" defaultValue="50" />
+            <Input required type="text" label="Max Age:" id="max-age" defaultValue="50" />
+            <Input required type="text" label="Max Age:" id="max-age" defaultValue="50" />
+            <Input required type="text" label="Max Age:" id="max-age" defaultValue="50" />
+            <Input required type="text" label="Max Age:" id="max-age" defaultValue="50" />
+            <Input required type="text" label="Max Age:" id="max-age" defaultValue="50" />
+              <Input required type="text" label="Max Age:" id="max-age" defaultValue="50" />
+               <Input required type="text" label="Max Age:" id="max-age" defaultValue="50" />
+           <Button onClick={()=>dispatch(requestKidsData())}>Retrive Users</Button> 
+          </Header>
+        </Card>
+       </Container>
+    {/* 
       <h1>Planned Test</h1>
       <div>
         <button type="button" onClick={()=>dispatch(requestKidsData())}>Retrieve Users</button>
@@ -70,12 +74,13 @@ export const App = () => {
         <h2>Users</h2>
         min: <input name="minAge" defaultValue={0} type="number" />
         max: <input name="maxAge" defaultValue={100} type="number" />
-          <Button>Normal Button</Button>  
-         <Input required type="text" label="First Name" id="first-name" defaultValue="Antony" />
-      </div>
-       {kidsList}
-    </div>
-    </BaseLayout>
+          
+         
+        </div> */}
+        {kidsList}
+        </BaseLayout> 
+     </div>
+   
   );
 }
 
