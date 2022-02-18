@@ -5,4 +5,5 @@ export * from './Card';
 export * from './Header';
 export * from './Heading';
 export * from './ListItem';
+export * from './Navbar'
 

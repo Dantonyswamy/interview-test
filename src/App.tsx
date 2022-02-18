@@ -5,7 +5,7 @@ import { requestAdultsData } from './slice/adults';
 import { requestSeniorsData } from './slice/seniors';
 import { RootState } from './state';
 import { User } from './types/users';
-import { Button, Input, Card, Heading, ListItem, ListHeader  } from './components';
+import { Button, Input, Card, Heading, ListItem, ListHeader, NavBar  } from './components';
 import { BaseLayout, Container } from './layouts';
 
 
@@ -50,7 +50,10 @@ export const App = () => {
 
 
   return (
-    <BaseLayout> 
+    <div className='App'>
+      <NavBar />
+      <BaseLayout>
+        
       <Container>
          <Heading>Users</Heading> 
       <Card>        
@@ -63,7 +66,7 @@ export const App = () => {
         <Container>
          
       <Card>         
-          <Input required type="text" id="max-age" placeholder='Search...' /> 
+          <Input required type="text" id="max-age" placeholder='Search Users' /> 
           <ListHeader />
           {usersList.sort((a, b) => {
             if(a.props.name === b.props.name) return b.props.age - a.props.age;
@@ -71,10 +74,10 @@ export const App = () => {
           })}                
         
         </Card>
-       </Container>  
-       
+        </Container>
+        
         </BaseLayout> 
-    
+    </div>
    
   );
 }
