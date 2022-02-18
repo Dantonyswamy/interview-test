@@ -1,5 +1,4 @@
 import { call, put, all, takeLatest } from 'redux-saga/effects'
-
 import { User } from '../types/users'
 import { requestAdultsData, fetchAdultsData } from '../slice/adults'
 import { getAdultUsersFromApi } from '../connectivity/adults-api'

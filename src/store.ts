@@ -5,10 +5,12 @@ import createSagaMiddleware from '@redux-saga/core'
 
 import { kidsDataSlice } from './slice/kids'
 import { adultsDataSlice } from './slice/adults'
+import { seniorsDataSlice } from './slice/seniors'
 
 export const rootReducer = {
   kidsData: kidsDataSlice.reducer,
   adultsData: adultsDataSlice.reducer,
+  seniorsData: seniorsDataSlice.reducer
 }
 
 export const initStore = () => {

@@ -2,6 +2,7 @@ import React, {useState, useEffect, useMemo} from 'react';
 import { useAppDispatch, useAppSelector } from './hooks/hooks';
 import { requestKidsData } from './slice/kids';
 import { requestAdultsData } from './slice/adults';
+import { requestSeniorsData } from './slice/seniors';
 import { RootState } from './state';
 import { User } from './types/users';
 import { Button, Input, Card, Heading, ListItem, ListHeader  } from './components';
@@ -12,13 +13,15 @@ export const App = () => {
   const [minAge, setMinAge] = useState(0);
   const [maxAge, setMaxAge] = useState(80);
   const [combinedUsersList, setCombinedUsersList] = useState<User[]>([]);
+
   const dispatch = useAppDispatch();
   const kidsDataFromApi = useAppSelector((state: RootState) => state.kidsData);
   const adultsDataFromApi = useAppSelector((state: RootState) => state.adultsData);
+  const seniorsDataFromApi = useAppSelector((state: RootState) => state.seniorsData);
 
   useEffect(() => {
-     setCombinedUsersList(kidsDataFromApi.kids.concat(adultsDataFromApi.adults))
-  }, [kidsDataFromApi, adultsDataFromApi]);
+     setCombinedUsersList(kidsDataFromApi.kids.concat(adultsDataFromApi.adults, seniorsDataFromApi.seniors));
+  }, [kidsDataFromApi, adultsDataFromApi, seniorsDataFromApi]);
   
   const filteredUsersList = useMemo(() => {
     return combinedUsersList.filter(user => user.age >= minAge && user.age <= maxAge);
@@ -27,6 +30,7 @@ export const App = () => {
   const retriveUsers =  async() => { 
     dispatch(requestKidsData());
     dispatch(requestAdultsData());
+    dispatch(requestSeniorsData());
    ;
   }
 
